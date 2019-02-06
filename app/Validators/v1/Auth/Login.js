@@ -2,9 +2,9 @@
 
 const Validator = use('App/Validators/Validator')
 
-class AuthLogin extends Validator{
+class AuthLogin extends Validator {
 
-  async authorize(){
+  async authorize () {
     // if (!isAdmin) {
     //   this.unauthorized()
     //   return false
@@ -13,22 +13,22 @@ class AuthLogin extends Validator{
     return true
   }
 
-  get rules(){
+  get rules () {
 
     return {
-      email: 'required|email',
-      password: 'required|min:8'
+      email   : 'required|email',
+      password: 'required|min:8',
     }
 
   }
 
-  get messages(){
+  get messages () {
 
     return {
-      'email.required': 'You must provide a email address.',
-      'email.email': 'You must provide a valid email address.',
+      'email.required'   : 'You must provide a email address.',
+      'email.email'      : 'You must provide a valid email address.',
       'password.required': 'You must provide a password',
-      'password.min': 'You must provide a password more than 8 characters'
+      'password.min'     : 'You must provide a password more than 8 characters',
     }
 
   }

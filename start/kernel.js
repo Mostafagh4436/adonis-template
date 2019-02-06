@@ -18,6 +18,8 @@ const globalMiddleware = [
   'Adonis/Middleware/Shield',
   'Adonis/Middleware/AuthInit',
   'App/Middleware/CountryDetector',
+  'Adonis/Middleware/ThrottleRequests',
+  'Adonis/Acl/Init',
 ]
 
 /*
@@ -39,7 +41,10 @@ const globalMiddleware = [
 */
 const namedMiddleware = {
   auth: 'Adonis/Middleware/Auth',
-  guest: 'Adonis/Middleware/AllowGuestOnly'
+  guest: 'Adonis/Middleware/AllowGuestOnly',
+  throttle: 'Adonis/Middleware/ThrottleRequests',
+  is: 'Adonis/Acl/Is',
+  can: 'Adonis/Acl/Can',
 }
 
 /*

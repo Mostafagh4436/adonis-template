@@ -3,8 +3,8 @@
 Development using the following:
 
 1. AdonisJs
-2. Angular
-3. B4A
+2. B4A
+3. Angular
 
 ## Developers
 

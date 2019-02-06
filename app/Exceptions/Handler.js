@@ -8,7 +8,7 @@ const BaseExceptionHandler = use('BaseExceptionHandler')
  *
  * @class ExceptionHandler
  */
-class ExceptionHandler extends BaseExceptionHandler{
+class ExceptionHandler extends BaseExceptionHandler {
 
   /**
    * Handle exception thrown during the HTTP lifecycle
@@ -21,25 +21,25 @@ class ExceptionHandler extends BaseExceptionHandler{
    *
    * @return {void}
    */
-  async handle(error, {request, response}){
+  async handle (error, { request, response }) {
 
     /** handle request to not match user email or password */
-    if(error.code === 'E_PASSWORD_MISMATCH' || error.code === 'E_USER_NOT_FOUND'){
-      if(request.header('accept')){
+    if ( error.code === 'E_PASSWORD_MISMATCH' || error.code === 'E_USER_NOT_FOUND' ) {
+      if ( request.header('accept') ) {
         response.status(error.status).json({
-          status : false,
-          message: "Invalid request body data"
+          status: false,
+          message: 'Invalid request body data',
         })
         return
       }
     }
 
     /** handle can not login error */
-    if(error.code === 'E_CANNOT_LOGIN'){
-      if( request.header('accept')){
+    if ( error.code === 'E_CANNOT_LOGIN' ) {
+      if ( request.header('accept') ) {
         response.status(error.status).json({
-          status : false,
-          message: "Cannot login multiple users at once, since a user is already logged in"
+          status: false,
+          message: 'Cannot login multiple users at once, since a user is already logged in',
         })
         return
       }
@@ -47,38 +47,38 @@ class ExceptionHandler extends BaseExceptionHandler{
     }
 
     /** handle request to not found Route */
-    if(error.code === 'E_ROUTE_NOT_FOUND' && request.header('accept')){
+    if ( error.code === 'E_ROUTE_NOT_FOUND' && request.header('accept') ) {
       response.status(error.status).json({
-        status : false,
-        message: "Route not found"
+        status: false,
+        message: 'Route not found',
       })
       return
     }
 
     /** handle request body fields error */
-    if(error.code === 'E_VALIDATION_FAILED'){
+    if ( error.code === 'E_VALIDATION_FAILED' ) {
       let messages = []
-      error.messages.forEach(function(item){
+      error.messages.forEach(function (item) {
         messages.push(item.message)
       })
       response.status(error.status).json({
-        status : false,
-        message: messages
+        status: false,
+        message: messages,
       })
       return
     }
 
     /** handle not found method error */
-    if(error.code === 'E_UNDEFINED_METHOD'){
+    if ( error.code === 'E_UNDEFINED_METHOD' ) {
       response.status(503).json({
-        status : false,
-        message: 'Cannot process this action. Method not found'
+        status: false,
+        message: 'Cannot process this action. Method not found',
       })
       return
     }
 
     /** handle csrf token error */
-    if(error.code === 'EBADCSRFTOKEN'){
+    if ( error.code === 'EBADCSRFTOKEN' ) {
       response.forbidden('Cannot process your request.')
       return
     }
@@ -96,7 +96,7 @@ class ExceptionHandler extends BaseExceptionHandler{
    *
    * @return {void}
    */
-  async report(error, {request}){
+  async report (error, { request }) {
 
     /** your code hear */
 

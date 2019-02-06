@@ -1,3 +1,11 @@
 {
-
+  "hello" : "سلام {name}",
+  "test"  : "سلام",
+  "user"  : {
+    "controller" : {
+      "index" : {
+        "test" : "لیست {key} با موفقیت {test} داده شد"
+      }
+    }
+  }
 }

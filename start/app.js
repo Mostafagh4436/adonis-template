@@ -22,6 +22,14 @@ const providers = [
   '@adonisjs/validator/providers/ValidatorProvider',
   '@adonisjs/ally/providers/AllyProvider',
   '@adonisjs/antl/providers/AntlProvider',
+  'adonis-bumblebee/providers/BumblebeeProvider',
+  'adonis-lucid-polymorphic/providers/PolymorphicProvider',
+  'adonis-notifications/providers/NotificationsProvider',
+  '@adonisjs/drive/providers/DriveProvider',
+  'adonis-fcm-notification-channel/providers/FcmNotificationChannelProvider',
+  'adonis-cache/providers/CacheProvider',
+  'adonis-throttle-requests/providers/ThrottleRequestsProvider',
+  'adonis-acl/providers/AclProvider',
 ]
 
 /*
@@ -34,7 +42,11 @@ const providers = [
 |
 */
 const aceProviders = [
-  '@adonisjs/lucid/providers/MigrationsProvider'
+  '@adonisjs/lucid/providers/MigrationsProvider',
+  'adonis-bumblebee/providers/CommandsProvider',
+  'adonis-notifications/providers/CommandsProvider',
+  'adonis-cache/providers/CommandsProvider',
+  'adonis-acl/providers/CommandsProvider',
 ]
 
 /*
@@ -49,7 +61,11 @@ const aceProviders = [
 |   { Route: 'Adonis/Src/Route' }
 |
 */
-const aliases = {}
+const aliases = {
+  Cache: 'Adonis/Addons/Cache',
+  Role: 'Adonis/Acl/Role',
+  Permission: 'Adonis/Acl/Permission',
+}
 
 /*
 |--------------------------------------------------------------------------

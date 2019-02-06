@@ -11,11 +11,11 @@ class CountryDetector {
    * @param {Request} ctx.request
    * @param {Function} next
    */
-  async handle({ request }, next) {
+  async handle ({ request }, next) {
 
     const ip = request.ip()
 
-    request.geo  = geoip.lookup(ip)
+    request.geo = geoip.lookup(ip)
 
     await next()
 
